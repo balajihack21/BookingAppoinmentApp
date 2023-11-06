@@ -57,6 +57,7 @@
 // })
 
 //storing multiple user details
+let input_box=document.querySelectorAll("input")
 sub_btn.addEventListener("click",(e)=>{
     e.preventDefault()
        let name=e.target.parentElement.children[1].value
@@ -83,6 +84,7 @@ display_user.forEach(e => {
     //     <h6>fkdjf</h6>
     //     <h6>kdhk</h6>
     //     <button class="btn btn-danger btn-sm float-right delete">X</button>
+    //<button class="btn btn-sm btn-sm float-right edit">✏️</button>
     //   </div>
 
     let row_div=document.createElement("div")
@@ -96,10 +98,15 @@ display_user.forEach(e => {
     let del_button=document.createElement("button")
     del_button.setAttribute("class","btn btn-danger btn-sm float-right delete")
     del_button.innerText="X"
+    let ed_btn=document.createElement("button")
+    ed_btn.setAttribute("class","btn btn-sm btn-sm float-right edit")
+    ed_btn.innerText="✏️"
+    
 
     row_div.append(name_h6)
     row_div.append(email_h6)
     row_div.append(del_button)
+    row_div.append(ed_btn)
     list_div.append(row_div)
 });
 
@@ -119,6 +126,24 @@ delete_btn.forEach((e)=>{
            }
         })
 
+    })
+})
+
+//Editing user
+let edit_button=document.querySelectorAll(".edit")
+
+edit_button.forEach((e)=>{
+    e.addEventListener("click",(el)=>{
+        let val=el.target.parentElement.children[0].innerText
+// el.target.parentElement.children[1].innerHTML=`<input value=${val}>`
+input_box[0].value=el.target.parentElement.children[0].innerText
+         input_box[1].value=el.target.parentElement.children[1].innerText
+         display_user.find((element)=>{
+           if(element.username==input_box[0].value){
+           element.email=input_box[1].value
+           localStorage.setItem("user_details",JSON.stringify(display_user))
+           }
+        })
     })
 })
 
