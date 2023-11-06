@@ -32,6 +32,20 @@
 
 //storing user details as object
 
+// sub_btn.addEventListener("click",(e)=>{
+//     e.preventDefault()
+//        let name=e.target.parentElement.children[1].value
+//    let email=e.target.parentElement.children[3].value
+//    let user_details={
+//     "username":name,
+//     "email":email
+//    }
+
+//    localStorage.setItem("user_details",JSON.stringify(user_details))
+//    console.log(JSON.parse(localStorage.getItem("user_details")))
+// })
+
+//storing multiple user details
 sub_btn.addEventListener("click",(e)=>{
     e.preventDefault()
        let name=e.target.parentElement.children[1].value
@@ -41,7 +55,10 @@ sub_btn.addEventListener("click",(e)=>{
     "email":email
    }
 
-   localStorage.setItem("user_details",JSON.stringify(user_details))
+   let user_arr=localStorage.getItem("user_details")?JSON.parse(localStorage.getItem("user_details")):[]
+   user_arr.push(user_details)
+
+   localStorage.setItem("user_details",JSON.stringify(user_arr))
    console.log(JSON.parse(localStorage.getItem("user_details")))
 })
    </script>
