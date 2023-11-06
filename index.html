@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Booking Appoinment App</title>
+</head>
+<body>
+    <div id="signin">
+        <form>
+            <label for="name">Username</label>
+            <input type="text" placeholder="Enter the name" name="name">
+            <label for="email">Email</label>
+            <input type="text" placeholder="Enter the email id" name="email">
+            <button>Submit</button>
+        </form>
+    </div>
+   <script>
+    let sub_btn=document.querySelector("button")
+
+sub_btn.addEventListener("click",(e)=>{
+    e.preventDefault()
+   let name=e.target.parentElement.children[1].value
+   let email=e.target.parentElement.children[3].value
+   localStorage.setItem("username",name)
+   localStorage.setItem("email",email)
+   console.log(localStorage.getItem("username"))
+   console.log(localStorage.getItem("email"))
+})
+   </script>
+</body>
+</html>
