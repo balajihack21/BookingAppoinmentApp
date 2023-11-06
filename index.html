@@ -20,14 +20,29 @@
    <script>
     let sub_btn=document.querySelector("button")
 
+// sub_btn.addEventListener("click",(e)=>{
+//     e.preventDefault()
+//    let name=e.target.parentElement.children[1].value
+//    let email=e.target.parentElement.children[3].value
+//    localStorage.setItem("username",name)
+//    localStorage.setItem("email",email)
+//    console.log(localStorage.getItem("username"))
+//    console.log(localStorage.getItem("email"))
+// })
+
+//storing user details as object
+
 sub_btn.addEventListener("click",(e)=>{
     e.preventDefault()
-   let name=e.target.parentElement.children[1].value
+       let name=e.target.parentElement.children[1].value
    let email=e.target.parentElement.children[3].value
-   localStorage.setItem("username",name)
-   localStorage.setItem("email",email)
-   console.log(localStorage.getItem("username"))
-   console.log(localStorage.getItem("email"))
+   let user_details={
+    "username":name,
+    "email":email
+   }
+
+   localStorage.setItem("user_details",JSON.stringify(user_details))
+   console.log(JSON.parse(localStorage.getItem("user_details")))
 })
    </script>
 </body>
