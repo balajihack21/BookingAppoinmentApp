@@ -2,7 +2,8 @@ body{
     background-color: black;
     color: white;
     display: flex;
-    justify-content: center;
+    flex-direction: row;
+    justify-content:space-around;
     align-items: center;
     height: 600px;
     
@@ -33,4 +34,12 @@ button{
     border-radius: 5px;
     background-color: #fd6228;
     border:1px solid #fd6228;
+}
+.row{
+    display: flex;
+    justify-content: space-between;
+}
+.row h6{
+  margin-top:20px;
+  margin-left:30px
 }
